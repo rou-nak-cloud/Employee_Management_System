@@ -1,10 +1,12 @@
 import React from 'react'
 
-const DashboardHeader = () => {
+const DashboardHeader = (props) => {
 
     const logOutUser = () => {
       localStorage.setItem('loggedInUser','')
-      window.location.reload()
+      
+      // console.log(props)
+      // window.location.reload()
     }
 
   return (
