@@ -1,31 +1,40 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { AuthContext } from '../../Context/AuthProvider'
 
 const AdminDashPanel = () => {
 
+  const [userdata, setUserdata] = useContext(AuthContext)
+  
   const [taskTitle, setTaskTitle] = useState('')
   const [taskDescription, setTaskDescription] = useState('')
   const [taskDate, setTaskDate] = useState('')
   const [taskAssignTo, setTaskAssignTo] = useState('')
-  const [taskCategory, setTaskCategory] = useState('')
+  const [category, setCategory] = useState('')
 
   const [newTask, setNewTask] = useState({})
 
   const submitHandler = (e) => {
     e.preventDefault()
 
-    setNewTask({taskTitle,taskDescription,taskDate,taskCategory,active:false,newTask:true,completed:false,failed:false})
+    setNewTask({taskTitle,taskDescription,taskDate,category,active:false,newTask:true,completed:false,failed:false})
      
-    const data = JSON.parse(localStorage.getItem('employees'))
-    data.forEach((elem) => {
+    // const data = JSON.parse(localStorage.getItem('employees'))
+    const data = userdata
+    // console.log(data)
+         data.forEach((elem) => {
       if(taskAssignTo == elem.firstName){
         elem.tasks.push(newTask)
-        console.log(elem) 
+        elem.taskCounts.newTask = elem.taskCounts.newTask+1
+        // console.log(elem) 
       }
     })
+    console.log(data)
+    setUserdata(data)
+    // localStorage.setItem('employees', JSON.stringify(data))
 
     setTaskTitle('')
     setTaskAssignTo('')
-    setTaskCategory('')
+    setcategory('')
     setTaskDate('')
     setTaskDescription('')
 
@@ -75,9 +84,9 @@ const AdminDashPanel = () => {
             <div>
             <h3 className='text-lg mb-0.5 text-gray-300'>Category:</h3>
             <input
-            value={taskCategory}
+            value={category}
             onChange={(e) => {
-              setTaskCategory(e.target.value)
+              setCategory(e.target.value)
             }}
              className='text-medium py-2 px-4 w-4/5 rounded outline-none border-emerald-700 border-b-2 border-l-2 border-r-2 mb-5'  
             type="text" placeholder='design, dev, graphics, editing etc.' />

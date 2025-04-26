@@ -5,14 +5,14 @@ const DashboardHeader = (props) => {
     const logOutUser = () => {
       localStorage.setItem('loggedInUser','')
       props.changeUser('')
-      // console.log(props)
+      console.log(props)
       // window.location.reload()
     }
 
   return (
     <div>
       <div className=' flex items-end justify-between'>
-        <h2 className='text-2xl font-medium'>Hello <br /> <span className='text-emerald-700 font-semibold text-3xl'> username👋</span></h2>
+        <h2 className='text-2xl font-medium'>Hello <br /> <span className='text-emerald-700 font-semibold text-3xl'>{props.data.firstName}👋</span></h2>
         <button onClick={logOutUser} className='bg-red-600 font-medium text-white rounded-sm px-5 py-2 cursor-pointer hover:bg-red-800'>LogOut</button>
       </div>
     </div>
