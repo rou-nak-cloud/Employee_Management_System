@@ -8,13 +8,28 @@ const AdminDashPanel = () => {
   const [taskAssignTo, setTaskAssignTo] = useState('')
   const [taskCategory, setTaskCategory] = useState('')
 
-  const [task, setTask] = useState({})
+  const [newTask, setNewTask] = useState({})
 
   const submitHandler = (e) => {
     e.preventDefault()
 
-    setTask({taskTitle,taskDescription,taskDate,taskCategory,taskDescription,active:false,newTask:true,completed:false,failed:true})
+    setNewTask({taskTitle,taskDescription,taskDate,taskCategory,active:false,newTask:true,completed:false,failed:false})
+     
+    const data = JSON.parse(localStorage.getItem('employees'))
+    data.forEach((elem) => {
+      if(taskAssignTo == elem.firstName){
+        elem.tasks.push(newTask)
+        console.log(elem) 
+      }
+    })
 
+    setTaskTitle('')
+    setTaskAssignTo('')
+    setTaskCategory('')
+    setTaskDate('')
+    setTaskDescription('')
+
+    // console.log(data)
     console.log("Task created")
   }
   return (
