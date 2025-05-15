@@ -34,13 +34,13 @@ npm install
 npm start
 ```
 
-# Structure
--src/
--├── components/
--│   ├── EmployeeList.jsx
--│   ├── EmployeeForm.jsx
--│   └── EmployeeCard.jsx
--├── App.jsx
--├── index.js
--└── styles.css
+## Structure
+- src/
+- ├── components/
+- │   ├── EmployeeList.jsx
+- │   ├── EmployeeForm.jsx
+- │   └── EmployeeCard.jsx
+- ├── App.jsx
+- ├── index.js
+- └── styles.css
 
