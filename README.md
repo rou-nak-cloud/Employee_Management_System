@@ -46,11 +46,11 @@ npm start
 
 ## Each employee object in localStorage is saved as:
 - {
-  "id": "uuid",
-  "name": "John Doe",
-  "position": "Software Engineer",
-  "email": "john@example.com",
-  "phone": "1234567890"
+ - "id": "uuid",
+ - "name": "John Doe",
+ - "position": "Software Engineer",
+ - "email": "john@example.com",
+ - "phone": "1234567890"
 - }
 
 
