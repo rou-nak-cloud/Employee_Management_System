@@ -35,12 +35,12 @@ npm start
 ```
 
 # Structure
-src/
-├── components/
-│   ├── EmployeeList.jsx
-│   ├── EmployeeForm.jsx
-│   └── EmployeeCard.jsx
-├── App.jsx
-├── index.js
-└── styles.css
+-src/
+-├── components/
+-│   ├── EmployeeList.jsx
+-│   ├── EmployeeForm.jsx
+-│   └── EmployeeCard.jsx
+-├── App.jsx
+-├── index.js
+-└── styles.css
 
